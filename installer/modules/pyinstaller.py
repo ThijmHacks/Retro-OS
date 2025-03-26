@@ -3,9 +3,8 @@ import PyInstaller.__main__
 def make_executable(location):
     PyInstaller.__main__.run([
         location,
-        '--onefile',
-        '--windowed',
+        #'--windowed', (add when installer is okay to use as a windowed version)
         '--distpath=./',
         '--clean',
-        '--workpath=../installer/wp'
+        '--workpath=./temp'
     ])
