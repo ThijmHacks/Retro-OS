@@ -1,1 +1,2 @@
-print("Hello World")
+def startup():
+    print("I am starting")
