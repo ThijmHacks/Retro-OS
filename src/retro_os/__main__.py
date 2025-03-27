@@ -14,5 +14,6 @@ class retro_os():
         retroos = window(root)
 
         retroos.master.title("Retro OS")
+        retroos.master.attributes("-fullscreen", True)
 
         retroos.mainloop()
