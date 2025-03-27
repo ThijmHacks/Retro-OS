@@ -1,3 +1,3 @@
-import retro_os.__main__ as retro_os
+import retro_os.__main__ as ro
 
-retro_os.startup()
+ro.retro_os()
