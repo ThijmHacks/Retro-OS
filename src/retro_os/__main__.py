@@ -10,5 +10,9 @@ from retro_os.window import window
 
 class retro_os():
     def __init__(self):
-        print("Hello World")
-        window()
+        root = tk.Tk()
+        retroos = window(root)
+
+        retroos.master.title("Retro OS")
+
+        retroos.mainloop()

@@ -1,6 +1,7 @@
 import tkinter as tk
 
-class window():
-    root = tk.Tk()
-
-    root.mainloop()
+class window(tk.Frame):
+    def __init__(self, master):
+        print("Working Window")
+        super().__init__(master)
+        self.pack()
