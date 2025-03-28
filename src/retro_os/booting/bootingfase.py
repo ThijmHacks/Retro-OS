@@ -40,9 +40,7 @@ def osloader(root):
     nwidth = width * 4
     nheight = height * 4
     oslogo_resized = oslogo_small.resize((nwidth, nheight))
-
     oslogo = ImageTk.PhotoImage(oslogo_resized)
-
     root.oslogo = oslogo
     logolabel = tk.Label(root, image=oslogo, background="black")
     logolabel.place(relx=0.5, rely=0.5, anchor="center")
