@@ -7,6 +7,6 @@ class RetroOS():
         root = tk.Tk()
         root.title("RetroOS")
         root.attributes("-fullscreen", True)
-
         sf(root, "bootloader")
-        root.mainloop() #For running program
+        root.mainloop()
+

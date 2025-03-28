@@ -12,5 +12,7 @@ def switch_fase(root, fase_name):
             bootloader(root)
         case "osloader":
             osloader(root)
+        case "otheros":
+            otheros(root)
         case _:
             print(f"fase {fase_name} not found.")
