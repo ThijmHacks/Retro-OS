@@ -4,14 +4,8 @@ from tkinter import PhotoImage
 from PIL import Image, ImageTk
 
 import retro_os
+from retro_os.keypresses.booting import *
 
-def on_f2(event, root):
-    print("F2 has been pressed")
-    retro_os.booting.fasechanger.switch_fase(root, "otheros")
-
-def on_space(event, root):
-    print("Space has been pressed")
-    retro_os.booting.fasechanger.switch_fase(root, "osloader")
 
 def bootloader(root):
     root.bind('<F2>', lambda event: on_f2(event, root))
