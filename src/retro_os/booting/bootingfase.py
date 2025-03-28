@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import PhotoImage
 
 import PIL.ImageOps
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageFilter
 
 import retro_os
 from retro_os.keypresses.booting import *
@@ -28,7 +28,8 @@ def bootloader(root):
     logolabel.place(relx=0.5, rely=0.3, anchor="center")
 
 
-    root.after(5000, lambda: bootloader_await_5s(root))
+    global loading
+    loading = root.after(5000, lambda: bootloader_await_5s(root))
 
 def osloader(root):
     root.unbind_all('<F12>')
@@ -37,8 +38,8 @@ def osloader(root):
     oslogo_path = os.path.expanduser("~/Onedrive/Documenten/Github/ThijmHacks/Retro-OS/src/retro_os/booting/os-logo.png")
     oslogo_small = Image.open(oslogo_path)
     width, height = oslogo_small.size
-    nwidth = width * 4
-    nheight = height * 4
+    nwidth = width * 8
+    nheight = height * 8
     oslogo_resized = oslogo_small.resize((nwidth, nheight))
     oslogo = ImageTk.PhotoImage(oslogo_resized)
     root.oslogo = oslogo
@@ -47,4 +48,6 @@ def osloader(root):
 
 def otheros(root):
     root.config(background="blue")
-    root.unbind_all(sequence)
+    root.unbind_all('<F12>')
+
+    root.after_cancel(loading)
