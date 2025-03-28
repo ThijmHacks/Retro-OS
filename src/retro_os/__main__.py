@@ -9,4 +9,3 @@ class RetroOS():
         root.attributes("-fullscreen", True)
         sf(root, "bootloader")
         root.mainloop()
-

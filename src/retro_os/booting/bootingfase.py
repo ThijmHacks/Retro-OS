@@ -3,20 +3,23 @@ import tkinter as tk
 from tkinter import PhotoImage
 from PIL import Image, ImageTk
 
-import retro_os.booting.fasechanger
+import retro_os
 
-def on_f2(event):
-    print("F2 has been pressed")  # Now this will be triggered when F2 is pressed
+def on_f2(event, root):
+    print("F2 has been pressed")
+    retro_os.booting.fasechanger.switch_fase(root, "otheros")
+
+def on_space(event, root):
+    print("Space has been pressed")
+    retro_os.booting.fasechanger.switch_fase(root, "osloader")
 
 def bootloader(root):
-    root.bind('<F2>', on_f2)
+    root.bind('<F2>', lambda event: on_f2(event, root))
+    root.bind('<space>', lambda event: on_space(event, root))
+
     root.config(background="black")
     label = tk.Label(root, text="Booting...", font=("Arial", 24))
     label.pack(side='top', anchor="center")
-    button = tk.Button(root, text="Load OS into disk", font=("Arial", 14),
-                       command=lambda: retro_os.booting.fasechanger.switch_fase(root, "osloader"))
-
-    button.pack()
 
 def osloader(root):
     root.config(background="lightgray")
@@ -33,9 +36,6 @@ def osloader(root):
     root.oslogo = oslogo
     logolabel = tk.Label(root, image=oslogo, background="lightgray")
     logolabel.place(relx=0.5, rely=0.5, anchor="center")
-
-    root.bind('<F12>', retro_os.booting.fasechanger.switch_fase(root, ""))
-
 
 def otheros(root):
     root.config(background="blue")
