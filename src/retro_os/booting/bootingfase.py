@@ -7,6 +7,7 @@ from PIL import Image, ImageTk, ImageFilter
 
 import retro_os
 from retro_os.keypresses.booting import *
+from retro_os.login.initializing import initializing_start
 
 
 def bootloader(root):
@@ -45,6 +46,9 @@ def osloader(root):
     root.oslogo = oslogo
     logolabel = tk.Label(root, image=oslogo, background="black")
     logolabel.place(relx=0.5, rely=0.5, anchor="center")
+
+
+    root.after(10000, lambda: osloader_await_10s(root))
 
 def otheros(root):
     root.config(background="blue")
