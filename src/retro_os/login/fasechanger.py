@@ -10,8 +10,8 @@ def switch_fase(root, fase_name):
     match fase_name:
         case "initializing_start":
             initializing_start(root)
-        case "language_select":
-            language_select(root)
+        case "location_select":
+            location_select(root)
         case "fix_current_installation":
             fix_current_installation(root)
         case _:

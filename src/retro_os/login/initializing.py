@@ -28,7 +28,7 @@ def initializing_start(root):
 
 
 
-def language_select(root):
+def location_select(root):
     root.config(bg="#51A69D")
 
     frame_width = root.winfo_screenwidth() // 1.5
