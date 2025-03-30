@@ -12,5 +12,7 @@ def switch_fase(root, fase_name):
             initializing_start(root)
         case "language_select":
             language_select(root)
+        case "fix_current_installation":
+            fix_current_installation(root)
         case _:
             print(f"fase {fase_name} not found.")
