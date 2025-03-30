@@ -1,7 +1,6 @@
 import os.path
 import tkinter as tk
 from tkinter import PhotoImage
-
 import PIL.ImageOps
 from PIL import Image, ImageTk, ImageFilter
 
@@ -13,6 +12,7 @@ from retro_os.login.initializing import initializing_start
 def bootloader(root):
     root.bind('<F12>', lambda event: bootloader_on_f12(event, root))
     root.config(bg="black")
+
 
     laptoplogo_path = os.path.expanduser("~/Onedrive/Documenten/Github/ThijmHacks/Retro-OS/src/retro_os/booting/laptop-logo.png")
     laptoplogo = Image.open(laptoplogo_path)
@@ -51,7 +51,7 @@ def osloader(root):
     root.after(10000, lambda: osloader_await_10s(root))
 
 def otheros(root):
-    root.config(background="blue")
+    root.config(background="darkblue")
     root.unbind_all('<F12>')
-
-    root.after_cancel(loading)
+    while True:
+        root.after_cancel(loading)
