@@ -10,5 +10,7 @@ def switch_fase(root, fase_name):
     match fase_name:
         case "initializing_start":
             initializing_start(root)
+        case "language_select":
+            language_select(root)
         case _:
             print(f"fase {fase_name} not found.")
