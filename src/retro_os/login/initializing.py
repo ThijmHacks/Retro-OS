@@ -5,7 +5,7 @@ import os
 
 import retro_os
 from retro_os.keypresses.login import *
-
+import retro_os.entrys.login as entrys
 
 def initializing_start(root):
     root.config(bg="#51A69D")
@@ -45,7 +45,7 @@ def location_select(root):
 
     running_directory = os.getcwd()
     location_running = tk.Label(user_interface, text=f"Current location: {running_directory}", background="#A0D9D3")
-    location_running.config(font=("Calibris", 11, 'bold'))
+    location_running.config(font=("Calibri", 11, 'bold'))
     location_running.place(relx=0.1, rely=0.3, anchor="w")
 
     start_button = tk.Button(user_interface, text="Fix current Retro OS\ninstallation", command= lambda: retro_os.keypresses.login.fix_current_retro_os(root))
@@ -87,11 +87,11 @@ def laptop_name(root):
     title_page.place(relx=0.5, rely=0.05, anchor="n")
 
     location_running = tk.Label(user_interface, text="Please enter a name for your laptop.", background="#A0D9D3", justify="left")
-    location_running.config(font=("Calibris", 14, 'bold'))
+    location_running.config(font=("Calibri", 14, 'bold'))
     location_running.place(relx=0.1, rely=0.3, anchor="w")
 
     laptop_name_entry = tk.Entry(user_interface, background="#A0D9D3")
-    laptop_name_entry.config(font=("Calibris", 12, 'italic'))
+    laptop_name_entry.config(font=("Calibri", 12, 'italic'))
     laptop_name_entry.place(relx=0.1, rely=0.35, anchor="w")
 
 
@@ -111,3 +111,20 @@ def product_key(root):
     title_page = tk.Label(user_interface, text="Product Key", background="#A0D9D3")
     title_page.config(font=("Bauhaus 93", 24))
     title_page.place(relx=0.5, rely=0.05, anchor="n")
+
+    product_key_text = tk.Label(user_interface, text="Enter product key below", background="#A0D9D3")
+    product_key_text.config(font=("Bauhaus 93", 20))
+    product_key_text.place(relx=0.5, rely=0.3, anchor="n")
+
+
+    laptop_name_entry = tk.Entry(user_interface, background="#A0D9D3")
+    laptop_name_entry.config(font=("Calibri", 18, 'italic'))
+    laptop_name_entry.place(relx=0.5, rely=0.4, anchor="n")
+
+    normal_pk = tk.Label(user_interface, text="Use this code:\n7894-2354-1245-8173", background="#A0D9D3")
+    normal_pk.config(font=("Calibri", 16))
+    normal_pk.place(relx=0.5, rely=0.6, anchor="n")
+
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_laptopname(root, product_key_entry))
+    next_button.config(font=("Bauhaus 93", 18))
+    next_button.place(relx=0.95,rely=0.95,anchor="se")
