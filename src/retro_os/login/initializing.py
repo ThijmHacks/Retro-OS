@@ -108,6 +108,6 @@ def product_key(root):
     user_interface = tk.Frame(root, width=frame_width, height=frame_height, background="#A0D9D3")
     user_interface.place(relx=0.5, rely=0.5, anchor="center")
 
-    title_page = tk.Label(user_interface, text="General laptop\ninformation", background="#A0D9D3")
+    title_page = tk.Label(user_interface, text="Product Key", background="#A0D9D3")
     title_page.config(font=("Bauhaus 93", 24))
     title_page.place(relx=0.5, rely=0.05, anchor="n")

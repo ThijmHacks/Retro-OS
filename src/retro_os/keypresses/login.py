@@ -20,10 +20,12 @@ def next_from_laptopname(root, laptop_entry):
 
     if laptop_name == "": laptop_name = "retro-os" + str(random.randint(100,999))
 
-    savedir = "system/"
+    savedir = "retroos/system/"
+    file_name = "laptop_name.ri"
     if not os.path.exists(savedir):
         os.makedirs(savedir)
-    with open("system/laptop_name.si", "a") as file:
-        file.write(laptop_name + "\n")
+    if os.path.exists(savedir+file_name): os.remove(savedir+file_name)
+    with open(savedir+file_name, "a") as file:
+        file.write(laptop_name)
 
     fci.switch_fase(root, "product_key")
