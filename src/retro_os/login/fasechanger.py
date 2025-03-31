@@ -20,5 +20,7 @@ def switch_fase(root, fase_name):
             laptop_name(root)
         case "product_key":
             product_key(root)
+        case "user_setup":
+            user_setup(root)
         case _:
             print(f"fase {fase_name} not found.")

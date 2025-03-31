@@ -2,6 +2,8 @@ import tkinter
 from tkinter import filedialog
 import os
 import random
+from cryptography.fernet import Fernet
+
 
 import retro_os
 from retro_os.login import fasechanger as fci
@@ -29,3 +31,21 @@ def next_from_laptopname(root, laptop_entry):
         file.write(laptop_name)
 
     fci.switch_fase(root, "product_key")
+
+def next_from_productkey(root, product_key_entry):
+    pk = str(product_key_entry.get())
+
+    if pk == str("7894-2354-1245-8173") or pk == str("7894235412458173"):
+        savedir = "retroos/system/"
+        file_name = "productkey.ri"
+        if not os.path.exists(savedir):
+            os.makedirs(savedir)
+        if os.path.exists(savedir+file_name): os.remove(savedir+file_name)
+        with open(savedir+file_name, "a") as file:
+            file.write(str(pk))
+
+        if pk == str("7894-2354-1245-8173") or pk == str("7894235412458173"): fci.switch_fase(root, "user_setup")
+
+
+def next_from_usersetup(root):
+    print("Finished the setup")

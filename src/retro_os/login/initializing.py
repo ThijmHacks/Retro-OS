@@ -95,7 +95,7 @@ def laptop_name(root):
     laptop_name_entry.place(relx=0.1, rely=0.35, anchor="w")
 
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_laptopname(root, laptop_name_entry))
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_laptopname(user_interface, laptop_name_entry))
     next_button.config(font=("Bauhaus 93", 18,))
     next_button.place(relx=0.95,rely=0.95,anchor="se")
 
@@ -117,14 +117,31 @@ def product_key(root):
     product_key_text.place(relx=0.5, rely=0.3, anchor="n")
 
 
-    laptop_name_entry = tk.Entry(user_interface, background="#A0D9D3")
-    laptop_name_entry.config(font=("Calibri", 18, 'italic'))
-    laptop_name_entry.place(relx=0.5, rely=0.4, anchor="n")
+    product_key_entry = tk.Entry(user_interface, background="#A0D9D3")
+    product_key_entry.config(font=("Calibri", 18, 'italic'))
+    product_key_entry.place(relx=0.5, rely=0.4, anchor="n")
 
     normal_pk = tk.Label(user_interface, text="Use this code:\n7894-2354-1245-8173", background="#A0D9D3")
     normal_pk.config(font=("Calibri", 16))
     normal_pk.place(relx=0.5, rely=0.6, anchor="n")
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_laptopname(root, product_key_entry))
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_productkey(root, product_key_entry))
+    next_button.config(font=("Bauhaus 93", 18))
+    next_button.place(relx=0.95,rely=0.95,anchor="se")
+
+def user_setup(root):
+    root.config(bg="#51A69D")
+
+    frame_width = root.winfo_screenwidth() // 1.5
+    frame_height = root.winfo_screenheight() // 1.5
+
+    user_interface = tk.Frame(root, width=frame_width, height=frame_height, background="#A0D9D3")
+    user_interface.place(relx=0.5, rely=0.5, anchor="center")
+
+    title_page = tk.Label(user_interface, text="User Setup", background="#A0D9D3")
+    title_page.config(font=("Bauhaus 93", 24))
+    title_page.place(relx=0.5, rely=0.05, anchor="n")
+
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_usersetup(user_interface))
     next_button.config(font=("Bauhaus 93", 18))
     next_button.place(relx=0.95,rely=0.95,anchor="se")
