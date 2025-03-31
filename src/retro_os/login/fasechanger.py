@@ -14,5 +14,7 @@ def switch_fase(root, fase_name):
             location_select(root)
         case "fix_current_installation":
             fix_current_installation(root)
+        case "laptop_name":
+            laptop_name(root)
         case _:
             print(f"fase {fase_name} not found.")

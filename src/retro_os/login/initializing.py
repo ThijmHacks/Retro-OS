@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import PhotoImage
+import os
+
 
 import retro_os
 from retro_os.keypresses.login import *
@@ -37,9 +39,18 @@ def location_select(root):
     user_interface = tk.Frame(root, width=frame_width, height=frame_height, background="#A0D9D3")
     user_interface.place(relx=0.5, rely=0.5, anchor="center")
 
+    running_directory = os.getcwd()
+    location_running = tk.Label(user_interface, text=f"Current location: {running_directory}", background="#A0D9D3")
+    location_running.config(font=("Bauhaus 93", 11))
+    location_running.place(relx=0.1, rely=0.3, anchor="w")
+
     start_button = tk.Button(user_interface, text="Fix current Retro OS\ninstallation", command= lambda: retro_os.keypresses.login.fix_current_retro_os(root))
-    start_button.config(font=("Bauhaus 93", 12))
+    start_button.config(font=("Bauhaus 93", 14))
     start_button.place(relx=0.05,rely=0.95,anchor="sw")
+
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_locationselect(root))
+    next_button.config(font=("Bauhaus 93", 18))
+    next_button.place(relx=0.95,rely=0.95,anchor="se")
 
 def fix_current_installation(root):
     root.config(bg="#51A69D")
@@ -58,4 +69,16 @@ def fix_current_installation(root):
     title_fixing.config(font=("Bauhaus 93", 42))
     title_fixing.place(relx=0.5,rely=0.35, anchor="center")
 
+def laptop_name(root):
+    root.config(bg="#51A69D")
 
+    frame_width = root.winfo_screenwidth() // 1.5
+    frame_height = root.winfo_screenheight() // 1.5
+
+    user_interface = tk.Frame(root, width=frame_width, height=frame_height, background="#A0D9D3")
+    user_interface.place(relx=0.5, rely=0.5, anchor="center")
+
+
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_locationselect(root))
+    next_button.config(font=("Bauhaus 93", 18))
+    next_button.place(relx=0.95,rely=0.95,anchor="se")

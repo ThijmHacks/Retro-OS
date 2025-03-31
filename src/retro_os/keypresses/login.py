@@ -1,4 +1,5 @@
 import tkinter
+from tkinter import filedialog
 
 import retro_os
 from retro_os.login import fasechanger as fci
@@ -8,3 +9,6 @@ def initializing_start_button(root):
 
 def fix_current_retro_os(root):
     fci.switch_fase(root, "fix_current_installation")
+
+def next_from_locationselect(root):
+    fci.switch_fase(root, "laptop_name")
