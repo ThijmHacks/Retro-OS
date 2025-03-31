@@ -39,6 +39,10 @@ def location_select(root):
     user_interface = tk.Frame(root, width=frame_width, height=frame_height, background="#A0D9D3")
     user_interface.place(relx=0.5, rely=0.5, anchor="center")
 
+    title_page = tk.Label(user_interface, text="Please select the location.", background="#A0D9D3")
+    title_page.config(font=("Bauhaus 93", 24))
+    title_page.place(relx=0.5, rely=0.05, anchor="n")
+
     running_directory = os.getcwd()
     location_running = tk.Label(user_interface, text=f"Current location: {running_directory}", background="#A0D9D3")
     location_running.config(font=("Bauhaus 93", 11))
@@ -77,6 +81,7 @@ def laptop_name(root):
 
     user_interface = tk.Frame(root, width=frame_width, height=frame_height, background="#A0D9D3")
     user_interface.place(relx=0.5, rely=0.5, anchor="center")
+
 
 
     next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_locationselect(root))
