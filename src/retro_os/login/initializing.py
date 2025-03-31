@@ -45,7 +45,7 @@ def location_select(root):
 
     running_directory = os.getcwd()
     location_running = tk.Label(user_interface, text=f"Current location: {running_directory}", background="#A0D9D3")
-    location_running.config(font=("Bauhaus 93", 11))
+    location_running.config(font=("Calibris", 11, 'bold'))
     location_running.place(relx=0.1, rely=0.3, anchor="w")
 
     start_button = tk.Button(user_interface, text="Fix current Retro OS\ninstallation", command= lambda: retro_os.keypresses.login.fix_current_retro_os(root))
@@ -82,8 +82,32 @@ def laptop_name(root):
     user_interface = tk.Frame(root, width=frame_width, height=frame_height, background="#A0D9D3")
     user_interface.place(relx=0.5, rely=0.5, anchor="center")
 
+    title_page = tk.Label(user_interface, text="General laptop\ninformation", background="#A0D9D3")
+    title_page.config(font=("Bauhaus 93", 24))
+    title_page.place(relx=0.5, rely=0.05, anchor="n")
+
+    location_running = tk.Label(user_interface, text="Please enter a name for your laptop.", background="#A0D9D3", justify="left")
+    location_running.config(font=("Calibris", 14, 'bold'))
+    location_running.place(relx=0.1, rely=0.3, anchor="w")
+
+    laptop_name_entry = tk.Entry(user_interface, background="#A0D9D3")
+    laptop_name_entry.config(font=("Calibris", 12, 'italic'))
+    laptop_name_entry.place(relx=0.1, rely=0.35, anchor="w")
 
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_locationselect(root))
-    next_button.config(font=("Bauhaus 93", 18))
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_laptopname(root, laptop_name_entry))
+    next_button.config(font=("Bauhaus 93", 18,))
     next_button.place(relx=0.95,rely=0.95,anchor="se")
+
+def product_key(root):
+    root.config(bg="#51A69D")
+
+    frame_width = root.winfo_screenwidth() // 1.5
+    frame_height = root.winfo_screenheight() // 1.5
+
+    user_interface = tk.Frame(root, width=frame_width, height=frame_height, background="#A0D9D3")
+    user_interface.place(relx=0.5, rely=0.5, anchor="center")
+
+    title_page = tk.Label(user_interface, text="General laptop\ninformation", background="#A0D9D3")
+    title_page.config(font=("Bauhaus 93", 24))
+    title_page.place(relx=0.5, rely=0.05, anchor="n")

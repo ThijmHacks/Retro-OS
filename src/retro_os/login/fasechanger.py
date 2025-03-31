@@ -1,4 +1,6 @@
 import tkinter as tk
+from itertools import product
+
 from retro_os.login.initializing import *
 
 def switch_fase(root, fase_name):
@@ -16,5 +18,7 @@ def switch_fase(root, fase_name):
             fix_current_installation(root)
         case "laptop_name":
             laptop_name(root)
+        case "product_key":
+            product_key(root)
         case _:
             print(f"fase {fase_name} not found.")
