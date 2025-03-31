@@ -2,7 +2,7 @@ import os.path
 import tkinter as tk
 from tkinter import PhotoImage
 import PIL.ImageOps
-from PIL import Image, ImageTk, ImageFilter
+from PIL import Image, ImageTk, ImageFilter, ImageEnhance
 
 import retro_os
 from retro_os.keypresses.booting import *
@@ -42,7 +42,11 @@ def osloader(root):
     nwidth = width * 8
     nheight = height * 8
     oslogo_resized = oslogo_small.resize((nwidth, nheight))
-    oslogo = ImageTk.PhotoImage(oslogo_resized)
+
+    oslogo_sharp = oslogo_resized.filter(ImageFilter.SHARPEN)
+
+    oslogo = ImageTk.PhotoImage(oslogo_sharp)
+
     root.oslogo = oslogo
     logolabel = tk.Label(root, image=oslogo, background="black")
     logolabel.place(relx=0.5, rely=0.5, anchor="center")
