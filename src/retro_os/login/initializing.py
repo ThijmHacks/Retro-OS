@@ -5,7 +5,6 @@ import os
 
 import retro_os
 from retro_os.keypresses.login import *
-import retro_os.entrys.login as entrys
 
 def initializing_start(root):
     root.config(bg="#51A69D")
@@ -142,6 +141,14 @@ def user_setup(root):
     title_page.config(font=("Bauhaus 93", 24))
     title_page.place(relx=0.5, rely=0.05, anchor="n")
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_usersetup(user_interface))
+    uname_entry = tk.Entry(user_interface, background="#A0D9D3")
+    uname_entry.config(font=("Calibri", 18, 'italic'))
+    uname_entry.place(relx=0.3, rely=0.3, anchor="e")
+
+    passwd_entry = tk.Entry(user_interface, background="#A0D9D3", show="*")
+    passwd_entry.config(font=("Calibri", 18, 'italic'))
+    passwd_entry.place(relx=0.3, rely=0.5, anchor="e")
+
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_usersetup(user_interface, uname_entry, passwd_entry))
     next_button.config(font=("Bauhaus 93", 18))
     next_button.place(relx=0.95,rely=0.95,anchor="se")

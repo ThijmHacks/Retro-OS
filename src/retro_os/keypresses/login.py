@@ -47,5 +47,5 @@ def next_from_productkey(root, product_key_entry):
         if pk == str("7894-2354-1245-8173") or pk == str("7894235412458173"): fci.switch_fase(root, "user_setup")
 
 
-def next_from_usersetup(root):
+def next_from_usersetup(root, username, password):
     print("Finished the setup")
