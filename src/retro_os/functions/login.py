@@ -1,4 +1,4 @@
-import tkinter
+import tkinter as tk
 from tkinter import filedialog
 import os
 import random
@@ -48,4 +48,43 @@ def next_from_productkey(root, product_key_entry):
 
 
 def next_from_usersetup(root, username, password):
-    print(username.get() + " has the password of: " + password.get())
+    uname = username.get()
+    pword = password.get()
+
+    if hasattr(next_from_usersetup, 'uname_too_small') and next_from_usersetup.uname_too_small:
+        next_from_usersetup.uname_too_small.destroy()
+
+    if hasattr(next_from_usersetup, 'passwd_too_small') and next_from_usersetup.passwd_too_small:
+        next_from_usersetup.passwd_too_small.destroy()
+
+
+    passwd_too_small = tk.Label(root, text="Password to small\nPlease enter more then 3 characters.",
+                                background="#A0D9D3")
+    passwd_too_small.config(font=("Calibri", 15, 'italic'))
+
+    uname_too_small = tk.Label(root, text="Username to small,\nPlease enter more then 3 characters.",
+                               background="#A0D9D3")
+    uname_too_small.config(font=("Calibri", 15, 'italic'))
+
+    next_from_usersetup.uname_too_small = uname_too_small
+    next_from_usersetup.passwd_too_small = passwd_too_small
+
+    uname_good = False
+    pword_good = False
+
+    if len(uname) <= 3:
+        uname_too_small.place(relx=0.35, rely=0.3, anchor="w")
+        uname_good = False
+    elif len(uname) >= 4:
+        uname_too_small.destroy()
+        uname_good = True
+
+    if len(pword) <= 3:
+        passwd_too_small.place(relx=0.35, rely=0.5, anchor="w")
+        pword_good = False
+    elif len(pword) >= 4:
+        passwd_too_small.destroy()
+        pword_good = True
+
+    if pword_good and uname_good:
+        print("Finished setup")
