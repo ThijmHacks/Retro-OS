@@ -48,4 +48,4 @@ def next_from_productkey(root, product_key_entry):
 
 
 def next_from_usersetup(root, username, password):
-    print("Finished the setup")
+    print(username.get() + " has the password of: " + password.get())
