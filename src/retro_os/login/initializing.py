@@ -4,7 +4,7 @@ import os
 
 
 import retro_os
-from retro_os.keypresses.login import *
+from retro_os.functions.login import *
 
 def initializing_start(root):
     root.config(bg="#51A69D")

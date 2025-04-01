@@ -5,7 +5,7 @@ import PIL.ImageOps
 from PIL import Image, ImageTk, ImageFilter, ImageEnhance
 
 import retro_os
-from retro_os.keypresses.booting import *
+from retro_os.functions.booting import *
 from retro_os.login.initializing import initializing_start
 
 
