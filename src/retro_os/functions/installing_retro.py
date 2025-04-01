@@ -7,6 +7,7 @@ from cryptography.fernet import Fernet
 
 import retro_os
 from retro_os.login import fasechanger as fci
+import retro_os.functions.users as usr
 
 def initializing_start_button(root):
     fci.switch_fase(root, "location_select")
@@ -48,6 +49,7 @@ def next_from_productkey(root, product_key_entry):
 
 
 def next_from_usersetup(root, username, password):
+    usr.create_user_file()
     uname = username.get()
     pword = password.get()
 
@@ -87,4 +89,4 @@ def next_from_usersetup(root, username, password):
         pword_good = True
 
     if pword_good and uname_good:
-        print("Finished setup")
+        usr.create_user(uname, pword)
