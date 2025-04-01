@@ -17,7 +17,7 @@ def initializing_start(root):
     user_interface.place(relx=0.5, rely=0.5, anchor="center")
 
 
-    start_button = tk.Button(user_interface, text="Lets go!", command= lambda: retro_os.keypresses.login.initializing_start_button(root))
+    start_button = tk.Button(user_interface, text="Lets go!", command= lambda: retro_os.functions.login.initializing_start_button(root))
     start_button.config(font=("Bauhaus 93", 36))
     start_button.place(relx=0.5,rely=0.85,anchor="center")
 
@@ -47,11 +47,11 @@ def location_select(root):
     location_running.config(font=("Calibri", 11, 'bold'))
     location_running.place(relx=0.1, rely=0.3, anchor="w")
 
-    start_button = tk.Button(user_interface, text="Fix current Retro OS\ninstallation", command= lambda: retro_os.keypresses.login.fix_current_retro_os(root))
+    start_button = tk.Button(user_interface, text="Fix current Retro OS\ninstallation", command= lambda: retro_os.functions.login.fix_current_retro_os(root))
     start_button.config(font=("Bauhaus 93", 14))
     start_button.place(relx=0.05,rely=0.95,anchor="sw")
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_locationselect(root))
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.functions.login.next_from_locationselect(root))
     next_button.config(font=("Bauhaus 93", 18))
     next_button.place(relx=0.95,rely=0.95,anchor="se")
 
@@ -64,7 +64,7 @@ def fix_current_installation(root):
     user_interface = tk.Frame(root, width=frame_width, height=frame_height, background="#A0D9D3")
     user_interface.place(relx=0.5, rely=0.5, anchor="center")
 
-    back_button = tk.Button(user_interface, text="Back", command= lambda: retro_os.keypresses.login.initializing_start_button(root))
+    back_button = tk.Button(user_interface, text="Back", command= lambda: retro_os.functions.login.initializing_start_button(root))
     back_button.config(font=("Bauhaus 93", 36))
     back_button.place(relx=0.5,rely=0.85,anchor="center")
 
@@ -94,7 +94,7 @@ def laptop_name(root):
     laptop_name_entry.place(relx=0.1, rely=0.35, anchor="w")
 
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_laptopname(user_interface, laptop_name_entry))
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.functions.login.next_from_laptopname(user_interface, laptop_name_entry))
     next_button.config(font=("Bauhaus 93", 18,))
     next_button.place(relx=0.95,rely=0.95,anchor="se")
 
@@ -124,7 +124,7 @@ def product_key(root):
     normal_pk.config(font=("Calibri", 16))
     normal_pk.place(relx=0.5, rely=0.6, anchor="n")
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_productkey(root, product_key_entry))
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.functions.login.next_from_productkey(root, product_key_entry))
     next_button.config(font=("Bauhaus 93", 18))
     next_button.place(relx=0.95,rely=0.95,anchor="se")
 
@@ -149,6 +149,6 @@ def user_setup(root):
     passwd_entry.config(font=("Calibri", 18, 'italic'))
     passwd_entry.place(relx=0.3, rely=0.5, anchor="e")
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.keypresses.login.next_from_usersetup(user_interface, uname_entry, passwd_entry))
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.functions.login.next_from_usersetup(user_interface, uname_entry, passwd_entry))
     next_button.config(font=("Bauhaus 93", 18))
     next_button.place(relx=0.95,rely=0.95,anchor="se")
