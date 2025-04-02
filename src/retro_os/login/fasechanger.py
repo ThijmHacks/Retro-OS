@@ -22,5 +22,7 @@ def switch_fase(root, fase_name):
             product_key(root)
         case "user_setup":
             user_setup(root)
+        case "checking_information":
+            checking_information(root)
         case _:
             print(f"fase {fase_name} not found.")

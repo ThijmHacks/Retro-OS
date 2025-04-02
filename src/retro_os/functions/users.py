@@ -24,3 +24,11 @@ def create_user(username, password):
 
     with open('retroos/users/user_list.ul', 'wb') as f:
         pickle.dump(users, f)
+
+def load_users():
+    try:
+        with open('retroos/users/user_list.ul', 'rb') as f:
+            users = pickle.load(f)
+            return users
+    except (EOFError):
+        return {}

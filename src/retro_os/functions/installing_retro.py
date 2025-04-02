@@ -90,3 +90,12 @@ def next_from_usersetup(root, username, password):
 
     if pword_good and uname_good:
         usr.create_user(uname, pword)
+        fci.switch_fase(root, "checking_information")
+
+def checking_information_check(root):
+    user_list = retro_os.functions.users.load_users()
+    user = random.choice(list(user_list))
+
+    username = tk.Label(root, text=f"The username is: {user}")
+    username.config(font=("Calibri", 18))
+    username.place(relx=0.5,rely=3,anchor="e")
