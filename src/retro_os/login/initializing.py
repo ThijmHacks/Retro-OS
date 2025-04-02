@@ -165,5 +165,41 @@ def checking_information(root):
     title_page.config(font=("Bauhaus 93", 24))
     title_page.place(relx=0.5, rely=0.05, anchor="n")
 
+    is_username = tk.Label(user_interface, text="The made user is: ")
+    is_username.config(font=("Calibri", 22), bg="#A0D9D3")
+    is_username.place(relx=0.33,rely=0.3, anchor="e")
+
     users = usr.load_users()
     user = random.choice(list(users))
+
+    username_is = tk.Label(user_interface, text=f"{user}")
+    username_is.config(font=("Calibri", 22, "italic"), bg="#A0D9D3")
+    username_is.place(relx=0.4,rely=0.3, anchor="w")
+
+    is_laptop_name_check = tk.Label(user_interface, text="The name of this laptop is: ")
+    is_laptop_name_check.config(font=("Calibri", 22, "italic"), bg="#A0D9D3")
+    is_laptop_name_check.place(relx=0.33,rely=0.4, anchor="e")
+
+    f = open("retroos/system/laptop_name.ri", "r")
+    laptop_name_check_r = f.read()
+    f.close()
+
+    laptop_name_check = tk.Label(user_interface, text=f"{laptop_name_check_r}")
+    laptop_name_check.config(font=("Calibri", 22, "italic"), bg="#A0D9D3")
+    laptop_name_check.place(relx=0.4,rely=0.4, anchor="w")
+
+    is_product_key = tk.Label(user_interface, text="The productkey of this laptop is: ")
+    is_product_key.config(font=("Calibri", 22, "italic"), bg="#A0D9D3")
+    is_product_key.place(relx=0.33,rely=0.5, anchor="e")
+
+    f = open("retroos/system/productkey.ri", "r")
+    product_key_check_r = f.read()
+    f.close()
+
+    product_key_check = tk.Label(user_interface, text=f"{product_key_check_r}")
+    product_key_check.config(font=("Calibri", 22, "italic"), bg="#A0D9D3")
+    product_key_check.place(relx=0.4,rely=0.5, anchor="w")
+
+    correct_text = tk.Label(user_interface, text=f"By pressing the button,\n the OS will restart.")
+    correct_text.config(font=("Calibri", 22, "italic"), bg="#A0D9D3")
+    correct_text.place(relx=0.7,rely=0.8, anchor="w")

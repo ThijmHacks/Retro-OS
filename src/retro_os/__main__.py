@@ -9,6 +9,6 @@ class RetroOS:
         root.title("RetroOS")
         root.attributes("-fullscreen", True)
         #sf(root, "bootloader")
-        sfn(root, "initializing_start")
+        sfn(root, "checking_information")
 
         root.mainloop()
