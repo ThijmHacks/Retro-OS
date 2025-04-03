@@ -30,7 +30,7 @@ def bootloader(root):
 
 
     global loading
-    loading = root.after(5000, lambda: bootloader_await_5s(root))
+    loading = root.after(10000, lambda: bootloader_await_5s(root))
 
 def osloader(root):
     root.unbind_all('<F12>')

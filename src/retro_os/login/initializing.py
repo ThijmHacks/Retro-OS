@@ -204,6 +204,6 @@ def checking_information(root):
     correct_text.config(font=("Calibri", 22, "italic"), bg="#A0D9D3")
     correct_text.place(relx=0.7,rely=0.8, anchor="w")
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.functions.installing_retro.finish_setup(root))
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.functions.installing_retro.finish_setup(root, next_button))
     next_button.config(font=("Bauhaus 93", 18))
     next_button.place(relx=0.95,rely=0.95,anchor="se")
