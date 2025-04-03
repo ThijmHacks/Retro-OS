@@ -2,6 +2,7 @@ import tkinter as tk
 from itertools import product
 
 from retro_os.login.initializing import *
+from retro_os.login.login import *
 
 def switch_fase(root, fase_name):
 
@@ -24,5 +25,7 @@ def switch_fase(root, fase_name):
             user_setup(root)
         case "checking_information":
             checking_information(root)
+        case "login_screen":
+            login_screen(root)
         case _:
             print(f"fase {fase_name} not found.")

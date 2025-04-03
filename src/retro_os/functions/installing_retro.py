@@ -3,6 +3,7 @@ from tkinter import filedialog
 import os
 import random
 from cryptography.fernet import Fernet
+import time
 
 
 import retro_os
@@ -93,9 +94,10 @@ def next_from_usersetup(root, username, password):
         usr.create_user(uname, pword)
         fcl.switch_fase(root, "checking_information")
 
-def finish_setup(root):
-    with open("retroos/installer/finished.sr", "") as file:
-        file.write("")
+def finish_setup(root, button):
+    os.makedirs("retroos/installer", exist_ok=True)
+    with open("retroos/installer/finished.sr", "w") as file:
+        pass
 
     time.sleep(random.randint(3,6))
     fcb.switch_fase(root, "bootloader")
