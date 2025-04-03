@@ -6,17 +6,18 @@ from cryptography.fernet import Fernet
 
 
 import retro_os
-from retro_os.login import fasechanger as fci
+from retro_os.login import fasechanger as fcl
+from retro_os.booting import fasechanger as fcb
 import retro_os.functions.users as usr
 
 def initializing_start_button(root):
-    fci.switch_fase(root, "location_select")
+    fcl.switch_fase(root, "location_select")
 
 def fix_current_retro_os(root):
-    fci.switch_fase(root, "fix_current_installation")
+    fcl.switch_fase(root, "fix_current_installation")
 
 def next_from_locationselect(root):
-    fci.switch_fase(root, "laptop_name")
+    fcl.switch_fase(root, "laptop_name")
 
 def next_from_laptopname(root, laptop_entry):
     laptop_name = laptop_entry.get()
@@ -31,7 +32,7 @@ def next_from_laptopname(root, laptop_entry):
     with open(savedir+file_name, "a") as file:
         file.write(laptop_name)
 
-    fci.switch_fase(root, "product_key")
+    fcl.switch_fase(root, "product_key")
 
 def next_from_productkey(root, product_key_entry):
     pk = str(product_key_entry.get())
@@ -45,7 +46,7 @@ def next_from_productkey(root, product_key_entry):
         with open(savedir+file_name, "a") as file:
             file.write(str(pk))
 
-        if pk == str("7894-2354-1245-8173") or pk == str("7894235412458173"): fci.switch_fase(root, "user_setup")
+        if pk == str("7894-2354-1245-8173") or pk == str("7894235412458173"): fcl.switch_fase(root, "user_setup")
 
 
 def next_from_usersetup(root, username, password):
@@ -90,4 +91,12 @@ def next_from_usersetup(root, username, password):
 
     if pword_good and uname_good:
         usr.create_user(uname, pword)
-        fci.switch_fase(root, "checking_information")
+        fcl.switch_fase(root, "checking_information")
+
+def finish_setup(root):
+    with open("retroos/installer/finished.sr", "") as file:
+        file.write("")
+
+    time.sleep(random.randint(3,6))
+    fcb.switch_fase(root, "bootloader")
+
