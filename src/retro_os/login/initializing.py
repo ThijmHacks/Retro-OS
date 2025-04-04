@@ -93,7 +93,7 @@ def laptop_name(root):
     laptop_name_entry.place(relx=0.1, rely=0.35, anchor="w")
 
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.functions.installing_retro.next_from_laptopname(user_interface, laptop_name_entry))
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.functions.installing_retro.next_from_laptopname(root, laptop_name_entry))
     next_button.config(font=("Bauhaus 93", 18,))
     next_button.place(relx=0.95,rely=0.95,anchor="se")
 
@@ -148,7 +148,7 @@ def user_setup(root):
     passwd_entry.config(font=("Calibri", 18, 'italic'))
     passwd_entry.place(relx=0.3, rely=0.5, anchor="e")
 
-    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.functions.installing_retro.next_from_usersetup(user_interface, uname_entry, passwd_entry))
+    next_button = tk.Button(user_interface, text="Next", command= lambda: retro_os.functions.installing_retro.next_from_usersetup(root, uname_entry, passwd_entry))
     next_button.config(font=("Bauhaus 93", 18))
     next_button.place(relx=0.95,rely=0.95,anchor="se")
 
