@@ -12,7 +12,7 @@ def login_screen(root):
         "user1": "password123",
     }
 
-    user_interface = tk.frame(root)
+    user_interface = tk.Frame(root)
     user_interface.pack(padx=10, pady=10, fill="both", expand=True)
 
     username = "user1"
