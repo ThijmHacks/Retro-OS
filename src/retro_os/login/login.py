@@ -8,16 +8,29 @@ from retro_os.functions.installing_retro import *
 import retro_os.functions.users as usr
 
 def login_screen(root):
-    root.config(bg="#51A69D")
-    root.unbind_all('<F12>')
+    users = {
+        "user1": "password123",
+    }
 
-    frame_width = root.winfo_screenwidth() // 1.5
-    frame_height = root.winfo_screenheight() // 1.5
+    user_interface = tk.user_interface(root)
+    user_interface.pack(padx=10, pady=10, fill="both", expand=True)
 
-    user_interface = tk.Frame(root, width=frame_width, height=frame_height, background="#A0D9D3")
-    user_interface.place(relx=0.5, rely=0.5, anchor="center")
+    username = "user1"
+    username_label = tk.Label(user_interface, text=username, font=("Arial", 16))
+    username_label.place(relx=0.5, rely=0.4, anchor="center")
 
+    password_label = tk.Label(user_interface, text="Password:", font=("Arial", 12))
+    password_label.place(relx=0.5, rely=0.5, anchor="center")
 
-    title_welcome = tk.Label(user_interface, text="System has started", background="#A0D9D3")
-    title_welcome.config(font=("Bauhaus 93", 72))
-    title_welcome.place(relx=0.5,rely=0.35, anchor="center")
+    password_entry = tk.Entry(user_interface, show="*", font=("Arial", 12))
+    password_entry.place(relx=0.5, rely=0.55, anchor="center")
+
+    def check_password():
+        entered_password = password_entry.get()
+        if users.get(username) == entered_password:
+            print("pw correct")
+        else:
+            print("pw incorrect")
+
+    login_button = tk.Button(user_interface, text="Login", command=check_password)
+    login_button.place(relx=0.5, rely=0.65, anchor="center")
