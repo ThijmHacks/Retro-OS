@@ -30,5 +30,7 @@ def load_users():
         with open('retroos/users/user_list.ul', 'rb') as f:
             users = pickle.load(f)
             return users
-    except (EOFError):
+    except EOFError:
+        return {}
+    except FileNotFoundError:
         return {}
